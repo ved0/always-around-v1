@@ -1,0 +1,12 @@
+.about-content {
+    width: 600px;
+    font-size: 1.25em;
+    text-align: center;
+    font-family: Caveat;
+    padding: 2em 0;
+    .idea-behind-project, .workflow-of-project {
+        .about-content-text {
+            font-family: Montserrat;
+        }
+    }
+}

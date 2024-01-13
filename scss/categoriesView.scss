@@ -1,0 +1,21 @@
+.chosen-category {
+  color: $base-font-color;
+
+  .chosen-category-header {
+    margin-top: 3em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    svg {
+      position: absolute;
+      left: 2em;
+      width: 60px;
+      height: 60px;
+      color: $pressed-font-color;
+    }
+
+    h1 {
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+main {
+  width: 100vw;
+  display: flex;
+  padding-bottom: 2em;
+  justify-content: center;
+  
+  .home-content {
+    text-align: center;
+    min-width: 420px;
+    width: 55%;
+    font-family: Caveat;
+    letter-spacing: 2px;
+    align-items: center;
+    .my-categories {
+      color: $base-font-color;
+      .categories {
+        color: $pressed-font-color;
+        justify-content: space-evenly;
+        display: flex;
+      }
+    }
+    .play-all-videos {
+      svg {
+        margin-right: 0.25em;
+      }
+      margin: 0;
+      padding: 0;
+      margin-top: 3em;
+      width: fit-content;
+
+      font-weight: bold;
+      opacity: 80%;
+      border-radius: 25px;
+      color: $pressed-font-color;
+      font-size: 1.25em;
+      padding: 0.25em 1.25em;
+      background-color: $base-color;
+      position: absolute;
+      right: 55%;
+    }
+  }
+
+  .favorite-picture {
+    padding: 10em 0;
+    width: 40%;
+    padding-left: 5em;
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "always-around-v1",
+  "version": "1.0.0",
+  "description": "examensarbete",
+  "main": "./src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
+    "sass": "sass --no-source-map scss/main.scss static/main.css",
+    "watch": "sass --no-source-map --watch scss/main.scss static/main.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vedad Zuga",
+  "license": "ISC",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^3.0.2",
+    "pug": "^3.0.2"
+  }
+}

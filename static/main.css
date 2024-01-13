@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap");
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+.header {
+  position: relative;
+  top: 0;
+  background-color: rgba(83, 83, 206, 0.22);
+  width: 100vw;
+}
+.header svg {
+  fill: rgba(83, 83, 206, 0.22);
+}
+.header .page-title {
+  font-size: 2.25em;
+  color: #7E7E8E;
+  font-family: Caveat;
+  letter-spacing: 2px;
+  padding-left: 1.75em;
+}
+.header .page-title .always {
+  font-weight: bold;
+}
+.header .welcome-user {
+  color: #468EC3;
+  position: fixed;
+  top: 1em;
+  font-weight: bold;
+  right: 2em;
+}
+.header .welcome-user i {
+  padding-left: 5px;
+}
+.header nav {
+  width: 100vw;
+  padding: 2em 0;
+}
+.header nav .header-list {
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: left;
+  padding: 0;
+  font-family: Montserrat;
+}
+.header nav .header-list .header-list-item {
+  display: inline;
+  padding-left: 6em;
+  font-size: 1.25em;
+}
+.header nav .header-list .header-list-item .nav-link {
+  color: #7E7E8E;
+}
+.header nav .header-list .header-list-item .activated {
+  color: #468EC3;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+main {
+  width: 100vw;
+  display: flex;
+  padding-bottom: 2em;
+  justify-content: center;
+}
+main .home-content {
+  text-align: center;
+  min-width: 420px;
+  width: 55%;
+  font-family: Caveat;
+  letter-spacing: 2px;
+  align-items: center;
+}
+main .home-content .my-categories {
+  color: #7E7E8E;
+}
+main .home-content .my-categories .categories {
+  color: #468EC3;
+  justify-content: space-evenly;
+  display: flex;
+}
+main .home-content .play-all-videos {
+  margin: 0;
+  padding: 0;
+  margin-top: 3em;
+  width: fit-content;
+  font-weight: bold;
+  opacity: 80%;
+  border-radius: 25px;
+  color: #468EC3;
+  font-size: 1.25em;
+  padding: 0.25em 1.25em;
+  background-color: rgba(83, 83, 206, 0.22);
+  position: absolute;
+  right: 55%;
+}
+main .home-content .play-all-videos svg {
+  margin-right: 0.25em;
+}
+main .favorite-picture {
+  padding: 10em 0;
+  width: 40%;
+  padding-left: 5em;
+}
+
+.footer {
+  background-color: rgba(83, 83, 206, 0.22);
+  width: 100vw;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  padding-bottom: 2em;
+  padding-top: 2em;
+  font-family: Caveat;
+  font-size: 1.5em;
+  color: #7E7E8E;
+  text-align: center;
+  letter-spacing: 1px;
+}
+.footer .footer-container .footer-text {
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.footer .footer-container .footer-text .bold-text {
+  font-weight: 900;
+}
+.footer .footer-container .disclaimer-text {
+  font-size: 0.5em;
+  font-family: Montserrat;
+}
+
+.category {
+  font-family: Caveat;
+  letter-spacing: 1.5px;
+  border-radius: 25px;
+  box-shadow: #468EC3 3px 5px 15px;
+  width: fit-content;
+  height: fit-content;
+  padding: 1em 2em;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.category h2 {
+  margin: 0;
+  padding-bottom: 1em;
+}
+.category svg {
+  width: 75px;
+  height: 75px;
+}
+.category:hover {
+  cursor: pointer;
+  box-shadow: #468EC3 6px 10px 30px;
+}
+
+.chosen-category {
+  color: #7E7E8E;
+}
+.chosen-category .chosen-category-header {
+  margin-top: 3em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.chosen-category .chosen-category-header svg {
+  position: absolute;
+  left: 2em;
+  width: 60px;
+  height: 60px;
+  color: #468EC3;
+}
+.chosen-category .chosen-category-header h1 {
+  margin: 0;
+}
+
+.gallery-container {
+  display: flex;
+  align-items: center;
+  padding-top: 2em;
+}
+.gallery-container .video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+  padding-top: 3em;
+  padding-bottom: 1em;
+  max-height: 350px; /* Set your desired maximum height */
+  overflow-y: hidden;
+  transition: transform 0.3s ease;
+}
+.gallery-container .scrolling .scroll-up,
+.gallery-container .scrolling .scroll-down {
+  position: relative;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  cursor: pointer;
+  margin: 4em 0;
+  height: 30px; /* Adjust as needed */
+  background-color: rgba(255, 255, 255, 0.8); /* Background color for arrows */
+}
+.gallery-container .scrolling .scroll-up svg,
+.gallery-container .scrolling .scroll-down svg {
+  height: 50px;
+  width: 50px;
+  color: #468EC3;
+}
+.gallery-container .scrolling .scroll-down {
+  top: auto;
+  bottom: 0;
+}
+
+.about-content {
+  width: 600px;
+  font-size: 1.25em;
+  text-align: center;
+  font-family: Caveat;
+  padding: 2em 0;
+}
+.about-content .idea-behind-project .about-content-text, .about-content .workflow-of-project .about-content-text {
+  font-family: Montserrat;
+}

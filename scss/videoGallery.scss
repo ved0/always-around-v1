@@ -1,0 +1,49 @@
+.gallery-container {
+    display: flex;
+    align-items: center;
+    padding-top: 2em;
+
+  .video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    padding-top: 3em;
+    padding-bottom: 1em;
+    max-height: 350px; /* Set your desired maximum height */
+    overflow-y: hidden;
+    transition: transform 0.3s ease;
+  }
+  .scrolling {
+
+    .scroll-up,
+    .scroll-down {
+      position: relative;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      cursor: pointer;
+      margin: 4em 0;
+      height: 30px; /* Adjust as needed */
+      background-color: rgba(
+        255,
+        255,
+        255,
+        0.8
+      ); /* Background color for arrows */
+
+      svg {
+        height: 50px;
+        width: 50px;
+        color: $pressed-font-color;
+      }
+    }
+
+    .scroll-down {
+      top: auto;
+      bottom: 0;
+    }
+  }
+}

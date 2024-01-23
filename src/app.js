@@ -112,7 +112,7 @@ app.post("/api/login", async (req, res) => {
     });
     res.status(200).send();
   } else {
-    res.status(401).send({ title: "Loging in" });
+    res.status(401).send({ message: "Invalid credentials!" });
   }
 });
 

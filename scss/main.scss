@@ -6,3 +6,12 @@
 @import "./categoriesView.scss";
 @import "./videoGallery.scss";
 @import "./about.scss";
+@import "./login.scss";
+@import "./admin.scss";
+@import "./unauthorized.scss";
+@import "./popup.scss";
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}

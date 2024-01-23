@@ -1,7 +1,11 @@
 .gallery-container {
-    display: flex;
-    align-items: center;
-    padding-top: 2em;
+  display: flex;
+  align-items: center;
+  padding-top: 2em;
+  justify-content: space-between;
+  .gallery-container:first-child {
+    justify-content: space-around;
+  }
 
   .video-gallery {
     display: flex;
@@ -10,12 +14,12 @@
     gap: 2em;
     padding-top: 3em;
     padding-bottom: 1em;
+    padding-left: 2em;
     max-height: 350px; /* Set your desired maximum height */
     overflow-y: hidden;
     transition: transform 0.3s ease;
   }
   .scrolling {
-
     .scroll-up,
     .scroll-down {
       position: relative;

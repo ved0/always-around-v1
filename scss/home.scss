@@ -1,8 +1,8 @@
 main {
   width: 100vw;
   display: flex;
-  padding-bottom: 2em;
   justify-content: center;
+  padding-top: 3em;
   
   .home-content {
     text-align: center;
@@ -41,7 +41,7 @@ main {
   }
 
   .favorite-picture {
-    padding: 10em 0;
+    padding: 8em 0;
     width: 40%;
     padding-left: 5em;
   }

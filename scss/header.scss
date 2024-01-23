@@ -5,26 +5,31 @@
   top: 0;
   background-color: $base-color;
   width: 100vw;
-  
 
-  svg {
-    fill: rgba(83, 83, 206, 0.22);
-  }
-
-  .page-title {
-    font-size: $page-title-font-size;
-    color: $base-font-color;
-    font-family: Caveat;
-    letter-spacing: 2px;
-    padding-left: 1.75em;
-    .always {
-      font-weight: bold;
+  .page-header {
+    padding-top: 1em;
+    width: fit-content;
+    display: flex;
+    .page-title,
+    .page-logo {
+      font-size: $page-title-font-size;
+      color: $base-font-color;
+      font-family: Caveat;
+      letter-spacing: 2px;
+      padding-left: 1.75em;
+      text-decoration: none;
+      .always {
+        font-weight: bold;
+      }
+    }
+    .page-title {
+      padding-left: 0.5em;
     }
   }
 
   .welcome-user {
     color: $pressed-font-color;
-    position: fixed;
+    position: absolute;
     top: 1em;
     font-weight: bold;
     right: 2em;
@@ -33,7 +38,6 @@
     }
   }
   nav {
-  
     width: 100vw;
     padding: 2em 0;
 
@@ -51,6 +55,7 @@
         font-size: 1.25em;
 
         .nav-link {
+          text-decoration: none;
           color: $base-font-color;
         }
         .activated {

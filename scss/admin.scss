@@ -1,0 +1,53 @@
+#admin {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Montserrat;
+
+  h1{
+    font-family: Caveat;
+  }
+  #admin-panel {
+    display: flex;
+    flex-direction: column;
+
+    #panel-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.25em 0;
+      font-size: 1.5em;
+      label {
+        padding-right: 1em;
+      }
+      #delete-video, #upload-video{
+        margin-left: 1em;
+        font-weight: bold;
+        opacity: 80%;
+        border-radius: 25px;
+        color: $pressed-font-color;
+        padding: 0.25em 1.25em;
+        font-family: Caveat;
+        background-color: $base-color;
+      }
+    }
+  }
+  #logout-button {
+    margin: 0;
+    width: fit-content;
+
+    position: fixed;
+    right: 2em;
+    top: 2em;
+    font-weight: bold;
+    opacity: 80%;
+    border-radius: 25px;
+    color: $pressed-font-color;
+    font-size: 1.25em;
+    padding: 0.25em 1.25em;
+    font-family: Caveat;
+    background-color: $base-color;
+  }
+}

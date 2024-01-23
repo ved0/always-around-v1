@@ -1,0 +1,30 @@
+extends main
+
+append content
+    div(id="admin")
+        div(id="popup-container")
+            div(id="popup")
+                h2(id="popup-header") Some text
+                p(id="popup-text") Some more text and what this is about
+                div(id="yes-no-button-container")
+                    button(id="yes-button") Yes
+                    button(id="no-button") No
+        button(id="logout-button") Log out
+        h1 Admin panel
+        div(id="admin-panel")
+            div(id="panel-row")
+                label(for="upload-input") Upload a video
+                input(type="file" id="upload-input" name="video" accept="video/*")
+                button(id="upload-video" onclick="upload()") Upload
+            div(id="panel-row")
+                label(for="movies") Delete a video
+                select(name="movies" id="movies")
+                    for movie in movieList
+                        option(value=movie)= movie 
+                input(type="submit" id="delete-video" value="Delete" onclick="displayDeletePopup()")
+
+append scripts
+    script(src="/static/utils/handleUpload.js")
+    script(src="/static/utils/handleLogout.js")
+    script(src="/static/utils/handleDelete.js")
+    script(src="/static/utils/handlePopup.js")

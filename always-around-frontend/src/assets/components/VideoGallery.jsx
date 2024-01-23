@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from "react";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,12 +8,28 @@ const VideoGallery = (props) => {
   const galleryRef = useRef(null);
   const [videos, setVideos] = useState([]);
 
+  function whatVideosToDisplay() {
+    switch (props.category) {
+      case "Alla videos":
+        return "all";
+        break;
+      case "Good times":
+        return "1";
+        break;
+      case "Hälsningar":
+        return "2";
+        break;
+      default:
+        return "";
+    }
+  }
+
   useEffect(() => {
     // Fetch video URLs from your Express server
-    fetch('http://localhost:5080/api/videos') // Update the URL accordingly
+    fetch("/api/videos?category=" + whatVideosToDisplay()) // Update the URL accordingly
       .then((response) => response.json())
       .then((data) => setVideos(data))
-      .catch((error) => console.error('Error fetching videos:', error));
+      .catch((error) => console.error("Error fetching videos:", error));
   }, []);
 
   const IamPlayed = (index) => {

@@ -1,0 +1,42 @@
+#popup-container {
+  background-color: white;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  font-family: Caveat;
+  display: none;
+  align-items: center;
+  z-index: 111;
+  #popup {
+    padding: 0 1.83em 0.83em 1.83em;
+    background-color: $base-color;
+    #popup-header {
+      text-align: center;
+    }
+    #popup-text {
+      font-family: Montserrat;
+    }
+
+    #yes-no-button-container {
+      display: flex;
+      justify-content: center;
+      #yes-button,
+      #no-button {
+        @include base-button;
+        background-color: rgba(36, 36, 84, 0.22);
+        color: white;
+
+        &:hover {
+          background-color: rgba(3, 3, 35, 0.622);
+        }
+      }
+      #yes-button {
+        margin-right: 1em;
+      }
+      #no-button {
+        margin-left: 1em;
+      }
+    }
+  }
+}

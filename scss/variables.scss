@@ -5,3 +5,14 @@ $base-color: rgba(83, 83, 206, 0.22);
 $base-font-color: #7E7E8E;
 $pressed-font-color: #468EC3;
 $page-title-font-size: 2.25em;
+
+@mixin base-button {
+    font-weight: bold;
+    opacity: 80%;
+    border-radius: 25px;
+    color: $pressed-font-color;
+    font-size: 1.25em;
+    padding: 0.25em 1.25em;
+    font-family: Caveat;
+    background-color: $base-color;
+}

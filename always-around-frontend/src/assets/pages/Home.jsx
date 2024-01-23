@@ -8,11 +8,8 @@ import VideoGallery from "../components/VideoGallery";
 const Home = () => {
   const [category, setCategory] = useState("");
 
-  const fetchSomeShit = () => {
-    fetch('http://localhost:5080/api/videos?category=all')
-    .then((response) => response.json())
-    .then((data) => console.log(data))
-    .catch((error) => console.error('Error fetching videos:', error));
+  const playAllVideos = () => {
+   setCategory("Alla videos");
   };
 
   const goBack = () => {
@@ -41,7 +38,7 @@ const Home = () => {
           <VideoGallery category={category} setCategory={setCategory}/>
         </div>
       )}
-      <button className="play-all-videos" onClick={fetchSomeShit}type="button">
+      <button className="play-all-videos" onClick={playAllVideos}type="button">
         <FontAwesomeIcon
           icon={faCirclePlay}
           size="2xl"

@@ -1,16 +1,7 @@
 extends main
 
-block content
-    main
-        div(id="root")
-            p I will be the first page!
+append content
+    div(id="root")
 
-block footer 
-    footer    
-    div(class="footer-section")
-        h3 If you like what you see,
-            br
-            |then hire me.
-        h3(class="contact-title") Contact
-        i(class="fa fa-envelope" style="font-size:1.5em")
-        a(class="email" href="mailto:vedadz@gmail.com") Vedad Zuga
+append scripts
+    script(type="module" crossorigin src="/static/index-ZzpNYPah.js")

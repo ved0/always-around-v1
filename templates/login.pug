@@ -1,0 +1,17 @@
+extends main
+
+append content
+    div(id="login")
+        div(id="login-panel")
+            h1(id="login-header") Welcome
+            form
+                div(id="one-row")
+                    label(for="username") Username
+                    input(type="text" name="username" id="username")
+                div(id="one-row")
+                    label(for="password") Password
+                    input(type="password" name="password" id="password" autocomplete="on")
+            button(id="login-button" onclick="login()") Log in
+
+append scripts
+    script(src="/static/utils/handleLogin.js")

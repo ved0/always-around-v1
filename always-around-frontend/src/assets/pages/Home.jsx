@@ -7,9 +7,14 @@ import VideoGallery from "../components/VideoGallery";
 
 const Home = () => {
   const [category, setCategory] = useState("");
+  const [emilieMode, setEmilieMode] = useState(false);
+
+  const handleToggle = () => {
+    setEmilieMode((prevMode) => !prevMode);
+  };
 
   const playAllVideos = () => {
-   setCategory("Alla videos");
+    setCategory("Alla videos");
   };
 
   const goBack = () => {
@@ -34,18 +39,47 @@ const Home = () => {
               onClick={goBack}
             />
             <h1>{category}</h1>
+            {category === "" ? (
+              ""
+            ) : (
+              <div className="video-controller-toggle-container">
+                <span>Emilié mode</span>
+                <label className="switch" id="switch">
+                  <input
+                    type="checkbox"
+                    defaultChecked={emilieMode}
+                    id="video-controller-toggle"
+                    onInput={handleToggle}
+                  />
+                  <span className="slider round"></span>
+                </label>
+              </div>
+            )}
           </div>
-          <VideoGallery category={category} setCategory={setCategory}/>
+          <VideoGallery
+            emilieMode={emilieMode}
+            setEmilieMode={setEmilieMode}
+            category={category}
+            setCategory={setCategory}
+          />
         </div>
       )}
-      <button className="play-all-videos" onClick={playAllVideos}type="button">
-        <FontAwesomeIcon
-          icon={faCirclePlay}
-          size="2xl"
-          style={{ color: "#468ec3" }}
-        />
-        Spela upp alla
-      </button>
+      {category == "" ? (
+        <button
+          className="play-all-videos"
+          onClick={playAllVideos}
+          type="button"
+        >
+          <FontAwesomeIcon
+            icon={faCirclePlay}
+            size="2xl"
+            style={{ color: "#468ec3" }}
+          />
+          Spela upp alla
+        </button>
+      ) : (
+        ""
+      )}
     </section>
   );
 };

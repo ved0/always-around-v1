@@ -16,6 +16,7 @@ const TopPanel = () => {
           <span className="always">ALWAYS</span> AROUND
         </Link>
       </div>
+      <div className="divider"></div>
       <div className="welcome-user">
         <span>Välkommen Emilié</span>
         <i className="fa fa-heart"> </i>

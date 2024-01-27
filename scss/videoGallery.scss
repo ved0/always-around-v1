@@ -1,8 +1,8 @@
 .gallery-container {
   display: flex;
   align-items: center;
-  padding-top: 2em;
   justify-content: space-between;
+  padding-top: 1.5em;
   .gallery-container:first-child {
     justify-content: space-around;
   }
@@ -12,12 +12,29 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 2em;
-    padding-top: 3em;
+    padding-top: 2em;
     padding-bottom: 1em;
     padding-left: 2em;
     max-height: 350px; /* Set your desired maximum height */
     overflow-y: hidden;
     transition: transform 0.3s ease;
+
+    .video {
+      video {
+        z-index: 0;
+        width: 200px;
+        height: 150px;
+      }
+      .active {
+        background-color: #c4b3eb;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+      }
+    }
   }
   .scrolling {
     .scroll-up,

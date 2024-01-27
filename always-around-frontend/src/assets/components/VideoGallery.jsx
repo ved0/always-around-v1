@@ -2,10 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import VideoController from "./VideoController";
 
 const VideoGallery = (props) => {
   const videoElements = useRef([]);
   const galleryRef = useRef(null);
+  const [displayController, setDisplayController] = useState(false);
+  const [timeOut, setTimeOut] = useState(null);
+  const [paused, setPaused] = useState(true);
+  const [indexOfCurrentPlayingVideo, setIndexOfCurrentPlayingVideo] =
+    useState(0);
   const [videos, setVideos] = useState([]);
 
   function whatVideosToDisplay() {
@@ -25,26 +31,64 @@ const VideoGallery = (props) => {
   }
 
   useEffect(() => {
-    // Fetch video URLs from your Express server
-    fetch("/api/videos?category=" + whatVideosToDisplay()) // Update the URL accordingly
+    if (props.emilieMode && !paused) {
+      window.scrollTo(0, 0);
+      document.body.style.overflowY = "hidden";
+    } else {
+      document.body.style.overflowY = "auto";
+    }
+    fetch("/api/videos?category=" + whatVideosToDisplay())
       .then((response) => response.json())
       .then((data) => setVideos(data))
       .catch((error) => console.error("Error fetching videos:", error));
-  }, []);
+  }, [props.emilieMode, paused]);
 
-  const IamPlayed = (index) => {
-    console.log("video being played with index " + (index + 1));
-    const currentVideo = videoElements.current[index];
-    if (currentVideo) {
-      currentVideo.requestFullscreen().then(() => {
+  const iAmPlayed = (index) => {
+    if (props.emilieMode) {
+      const currentVideo = videoElements.current[index];
+      if (currentVideo.currentTime > 0) {
+        currentVideo.currentTime = 0;
+      }
+      if (currentVideo) {
         currentVideo.play();
-        currentVideo.controls = false;
-      });
+        currentVideo.className = "active";
+        setIndexOfCurrentPlayingVideo(index);
+        setDisplayController(true);
+        setPaused(false);
+      }
+    } else {
+      for (let i = 0; i < videoElements.current.length; i++) {
+        if (!videoElements.current[i].paused && index != i) {
+          videoElements.current[i].pause();
+        }
+      }
+    }
+  };
+
+  const iAmPaused = (index) => {
+    if (props.emilieMode) {
+      setPaused(true);
+      const currentVideo = videoElements.current[index];
+      if (currentVideo) {
+        if (currentVideo.duration == currentVideo.currentTime) {
+          const timeout = setTimeout(() => {
+            currentVideo.className = "";
+            if (index + 1 == videoElements.current.length) {
+              videoElements.current[0].className = "active";
+              videoElements.current[0].play();
+            } else {
+              videoElements.current[index + 1].className = "active";
+              videoElements.current[index + 1].play();
+            }
+          }, 10000);
+          setTimeOut(timeout);
+        }
+      }
     }
   };
 
   const handleScroll = (direction) => {
-    const scrollAmount = 200; // Adjust as needed
+    const scrollAmount = 200;
     const scrollDirection = direction === "up" ? -scrollAmount : scrollAmount;
     galleryRef.current.scrollBy({
       top: scrollDirection,
@@ -52,69 +96,32 @@ const VideoGallery = (props) => {
     });
   };
 
-  let data = [
-    {
-      id: 1,
-      title: "Video One",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/r8nXMA_pf0w/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 2,
-      title: "Video Two",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/wm5gMKuwSYk/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 3,
-      title: "Video One",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/r8nXMA_pf0w/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 4,
-      title: "Video Two",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/wm5gMKuwSYk/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 5,
-      title: "Video One",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/r8nXMA_pf0w/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 6,
-      title: "Video Two",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/wm5gMKuwSYk/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 8,
-      title: "Video One",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/r8nXMA_pf0w/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-    {
-      id: 7,
-      title: "Video One",
-      video_thumbnail_image: "http://i3.ytimg.com/vi/r8nXMA_pf0w/hqdefault.jpg",
-      video_url: "https://vimeo.com/900643328",
-    },
-  ];
   return (
     <div className="gallery-container">
+      {displayController ? (
+        <VideoController
+          paused={paused}
+          setPaused={setPaused}
+          videoElements={videoElements}
+          timeOut={timeOut}
+          setIndexOfCurrentPlayingVideo={setIndexOfCurrentPlayingVideo}
+          indexOfCurrentPlayingVideo={indexOfCurrentPlayingVideo}
+          setDisplayController={setDisplayController}
+        />
+      ) : (
+        ""
+      )}
       <div className="video-gallery" ref={galleryRef}>
         {videos.map((item, index) => {
           return (
             <div className="video" key={index}>
               <video
                 ref={(el) => (videoElements.current[index] = el)}
-                onPlay={() => IamPlayed(index)}
+                onPlay={() => iAmPlayed(index)}
+                onPause={() => iAmPaused(index)}
                 src={item}
-                width={"180px"}
-                height={"150px"}
                 controls
+                controlsList={props.emilieMode ? "nofullscreen" : "default"}
               ></video>
             </div>
           );

@@ -4,7 +4,6 @@ import { faHeart } from "@fortawesome/free-regular-svg-icons";
 
 const Category = (props) => {
   const doThis = (ev) => {
-    console.log("i am clicked " + ev.type + " name " + props.categoryName);
     props.setCategory(props.categoryName);
   };
 

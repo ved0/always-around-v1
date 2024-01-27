@@ -2,7 +2,7 @@
   "name": "always-around-v1",
   "version": "1.0.0",
   "description": "examensarbete",
-  "main": "./src/index.js",
+  "main": "./src/server.js",
   "type": "module",
   "scripts": {
     "start": "node .",

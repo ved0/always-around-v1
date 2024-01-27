@@ -26,10 +26,6 @@
         @include base-button;
         background-color: rgba(36, 36, 84, 0.22);
         color: white;
-
-        &:hover {
-          background-color: rgba(3, 3, 35, 0.622);
-        }
       }
       #yes-button {
         margin-right: 1em;

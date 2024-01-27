@@ -31,6 +31,8 @@ async function login() {
     .then((response) => {
       if (response.ok) {
         window.location.href = "/admin";
+      } else {
+        displayWrongLoginPopup();
       }
     })
     .catch((error) => console.error("Error trying to log in:", error));

@@ -3,7 +3,10 @@
     font-size: 1.25em;
     text-align: center;
     font-family: Caveat;
-    padding: 2em 0;
+    padding: 1.5em 0.5em 4em 0.5em;
+    @media (max-width:600px) {
+        width: 90%;
+      }
     .idea-behind-project, .workflow-of-project {
         .about-content-text {
             font-family: Montserrat;

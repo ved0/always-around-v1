@@ -1,27 +1,34 @@
 .category {
-    font-family: Caveat;
-    letter-spacing: 1.5px;
-    h2 {
-        margin: 0;
-        padding-bottom: 1em;
-    }
-    border-radius: 25px;
-    box-shadow: $pressed-font-color 3px 5px 15px;
-    width: fit-content;
-    height: fit-content;
-    padding: 1em 2em;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    svg{
-        width: 75px;
-        height: 75px;
-    }
+  font-family: Caveat;
+  letter-spacing: 1.5px;
+  border-radius: 25px;
+  box-shadow: $pressed-font-color 3px 5px 15px;
+  width: fit-content;
+  height: fit-content;
+  padding: 1em 2em;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.4s ease;
+  @media (max-width: 800px) {
+    min-width: 110px;
+    min-height: 110px;
+  }
 
-    &:hover{
-        cursor: pointer;
-        box-shadow: $pressed-font-color 6px 10px 30px;
-    }
+  h2 {
+    margin: 0;
+    padding-bottom: 1em;
+  }
+
+  svg {
+    width: 75px;
+    height: 75px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $pressed-font-color 6px 10px 30px;
+  }
 }

@@ -29,7 +29,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 600px;
-  width: 100wh;
+  width: 100vw;
   overflow-x: hidden;
   min-height: 100vh;
 }

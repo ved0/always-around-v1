@@ -2,6 +2,12 @@ extends main
 
 append content
     div(id="login")
+        div(id="popup-container")
+            div(id="popup")
+                h2(id="popup-header") Some text
+                p(id="popup-text") Some more text and what this is about
+                div(id="yes-no-button-container")
+                    button(id="no-button") Okay!
         div(id="login-panel")
             h1(id="login-header") Welcome
             form
@@ -15,3 +21,4 @@ append content
 
 append scripts
     script(src="/static/utils/handleLogin.js")
+    script(src="/static/utils/handlePopup.js")

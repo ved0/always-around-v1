@@ -26,3 +26,11 @@ function displayLogoutPopup() {
       "Are you sure that you want to log out?";
     popup.style.display = "flex";
   }
+
+  function displayWrongLoginPopup() {
+    popupHeader.textContent =
+      "Wrong credentials";
+    popupText.textContent =
+      "The provided username or password is wrong. \r\nPlease try again!";
+    popup.style.display = "flex";
+  }

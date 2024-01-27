@@ -15,7 +15,7 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
         <section className="favorite-picture">
-          <img src="static/pipi.png"></img>
+          <img src="/static/pipi.png"></img>
         </section>
       </main>
       <Footer />

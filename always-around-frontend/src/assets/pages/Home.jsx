@@ -7,7 +7,7 @@ import VideoGallery from "../components/VideoGallery";
 
 const Home = () => {
   const [category, setCategory] = useState("");
-  const [emilieMode, setEmilieMode] = useState(false);
+  const [emilieMode, setEmilieMode] = useState(true);
 
   const handleToggle = () => {
     setEmilieMode((prevMode) => !prevMode);

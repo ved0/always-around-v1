@@ -22,6 +22,7 @@ const VideoController = (props) => {
       }
     }
     if (value <= 15 && secondValue <= 15) {
+      document.exitFullscreen();
       videoElements[index].pause();
       videoElements[index].className = "";
       videoElements[index].currentTime = 0;

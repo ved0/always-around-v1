@@ -34,6 +34,7 @@ const VideoGallery = (props) => {
     if (props.emilieMode && !paused) {
       window.scrollTo(0, 0);
       document.body.style.overflowY = "hidden";
+      document.documentElement.requestFullscreen();
     } else {
       document.body.style.overflowY = "auto";
     }

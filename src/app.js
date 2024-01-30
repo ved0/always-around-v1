@@ -1,8 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import fs from "fs";
 import multer from "multer";
 import { deleteVideo, listVideos } from "./api/apiHandler.js";
 import cookieParser from "cookie-parser";
@@ -10,7 +7,6 @@ import JWT from "jsonwebtoken";
 import dotenv from "dotenv";
 
 dotenv.config();
-
 const app = express();
 
 app.set("view engine", "pug");
@@ -22,7 +18,10 @@ app.use(cookieParser());
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "./static/videos/");
+    const basePath =
+      process.env.NODE_ENV === "production" ? "/usr/src/app" : ".";
+    const uploadPath = `${basePath}/static/videos/`;
+    cb(null, uploadPath);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
@@ -37,7 +36,7 @@ app.get("/", (req, res) => {
 
 app.get("/about", (req, res) => {
   res.render("index");
-})
+});
 
 app.get("/login", (req, res) => {
   if (req.cookies.session === undefined) {
@@ -57,7 +56,6 @@ app.get("/admin", async (req, res) => {
       const movieList = moviePaths.map(
         (movie) => (movie = movie.split("/").pop())
       );
-
       res.status(200).render("admin", { movieList });
     } else {
       res.status(401).render("unauthorized");

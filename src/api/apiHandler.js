@@ -1,10 +1,13 @@
 import { readdir, stat } from "fs/promises";
 import { join, dirname } from "path";
+import { fileURLToPath } from "url";
 import fs from "fs/promises";
 
 const folderRelativePath = "../../static/videos";
-const currentScriptPath = import.meta.url.replace(/^file:\/\/\//, "");
-const folderPath = join(dirname(currentScriptPath), folderRelativePath);
+const currentScriptPath = import.meta.url;
+const folderPath = currentScriptPath
+  ? join(dirname(fileURLToPath(currentScriptPath)), folderRelativePath)
+  : join(__dirname, folderRelativePath);
 
 export async function listVideos(category) {
   try {
@@ -18,7 +21,9 @@ export async function listVideos(category) {
       })
     );
     if (category == "all") {
-      return fileList.map((file) => (file = "/static/videos/" + file));
+      return fileList.map(
+        (file) => (file = "/static/videos/" + file)
+      );
     } else {
       const categoryRegex = new RegExp(`^${category}`, "i");
       return fileList
